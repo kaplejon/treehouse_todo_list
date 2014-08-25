@@ -60,4 +60,7 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/v/3-0/docs
   config.infer_spec_type_from_file_location!
+  # Adding the following snipper per discussion thread on Treehouse
+  # See: https://teamtreehouse.com/forum/how-do-i-removed-these-depreciation-warnings
+  config.expose_current_running_example_as :example
 end
