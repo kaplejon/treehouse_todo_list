@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe "Adding todo items" do
-  let!(:todo_list) { TodoList.create(title: "Grocery list", description: "Groceries") }
-  let(:user) { create(:user) }
+  let(:user) { todo_list.user }
+  let!(:todo_list) { create(:todo_list) }
   before { sign_in user, password: 'treehouse1' }
 
   it "is successful with valid content" do
