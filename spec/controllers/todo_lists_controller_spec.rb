@@ -30,11 +30,17 @@ describe TodoListsController do
   # TodoListsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
+  before do
+    controller.stub(:current_user).and_return(User.new)
+  end
+
   describe "GET index" do
-    it "assigns all todo_lists as @todo_lists" do
-      todo_list = TodoList.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:todo_lists).should eq([todo_list])
+    context "logged in" do
+      it "assigns all todo_lists as @todo_lists" do
+        todo_list = TodoList.create! valid_attributes
+        get :index, {}, valid_session
+        assigns(:todo_lists).should eq([todo_list])
+      end
     end
   end
 
