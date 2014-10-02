@@ -11,6 +11,10 @@ describe User do
     }
   }
 
+  context "relationships" do
+    it { should have_many(:todo_lists) }
+  end
+
   context "validations" do
     let(:user) { User.new(valid_attributes) }
 
