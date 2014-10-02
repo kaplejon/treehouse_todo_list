@@ -2,10 +2,11 @@ require 'spec_helper'
 
 describe "Viewing todo items" do
   let!(:todo_list) { TodoList.create(title: "Grocery list", description: "Groceries") }
+  let(:user) { create(:user) }
+  before { sign_in user, password: 'treehouse1' }
 
   it "displays the title of the todo list" do
-    #visit_todo_list(todo_list)
-    visit "/todo_lists/#{todo_list.id}/todo_items"
+    visit_todo_list(todo_list)
     within("div.content h1") do
       expect(page).to have_content(todo_list.title)
     end
