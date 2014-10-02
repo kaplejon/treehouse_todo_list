@@ -31,7 +31,7 @@ describe TodoListsController do
   let(:valid_session) { {} }
 
   before do
-    controller.stub(:current_user).and_return(User.new)
+    sign_in(build_stubbed(:user))
   end
 
   describe "GET index" do
